@@ -20,8 +20,14 @@ describe('String Calculator', () => {
         expect(add('1,2,3,4')).toBe(10);
     });
 
+    // New test case for handling new lines between numbers
     test('handles new lines between numbers', () => {
         expect(add('1\n2,3')).toBe(6);
+    });
+
+    // New test case for custom delimiter
+    test('supports custom single-character delimiter', () => {
+        expect(add('//;\n1;2')).toBe(3);
     });
 
 });
