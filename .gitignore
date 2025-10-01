@@ -1,0 +1,9 @@
+# Node.js dependencies
+node_modules
+
+# System files
+.DS_Store
+coverage
+
+# Environment files
+.env

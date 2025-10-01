@@ -1,0 +1,19 @@
+{
+  "name": "string-calculator-tdd",
+  "version": "1.0.0",
+  "description": "A TDD practice project for the String Calculator kata",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "jest --watchAll=false"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "jest": "^30.2.0"
+  }
+}
