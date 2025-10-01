@@ -1,12 +1,29 @@
 function add(numbers) {
     if (!numbers) return 0;
 
-    // Extract delimiter and numbers part
+    // Default delimiters
     let delimiter = /,|\n/;
+
     if (numbers.startsWith('//')) {
         const [delimiterLine, numStr] = numbers.split('\n', 2);
-        delimiter = new RegExp(delimiterLine.slice(2));
         numbers = numStr;
+
+        // Match all delimiters inside []
+        const matches = delimiterLine.match(/\[(.*?)\]/g);
+
+        if (matches) {
+            // Extract actual delimiters without [ ]
+            const delimiters = matches.map(d => d.slice(1, -1));
+
+            // Escape regex special characters
+            const escaped = delimiters.map(d => d.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
+
+            // Combine into regex
+            delimiter = new RegExp(escaped.join('|'));
+        } else {
+            // Single char delimiter like //;\n
+            delimiter = new RegExp(delimiterLine.slice(2));
+        }
     }
 
     // Convert to numbers
@@ -18,9 +35,10 @@ function add(numbers) {
         throw new Error(`negatives not allowed: ${negatives.join(',')}`);
     }
 
-    // Sum numbers, ignoring those > 1000
+    // Sum numbers ignoring >1000
     return ignoreBigNumbers(nums).reduce((sum, n) => sum + n, 0);
 }
+
 
 // Helper function to filter out numbers greater than 1000
 function ignoreBigNumbers(nums) {
