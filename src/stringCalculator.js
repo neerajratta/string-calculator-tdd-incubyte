@@ -1,5 +1,5 @@
 function add(numbers) {
   if (!numbers) return 0;
-    return Number(numbers);
+    return numbers.split(',').reduce((sum, n) => sum + Number(n), 0);
 }
 module.exports = { add };
