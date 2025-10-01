@@ -45,4 +45,9 @@ describe('String Calculator', () => {
         expect(add('//[***]\n1***2***3')).toBe(6);
     });
 
+    // New test case for multiple delimiters
+    test('handles multiple delimiters', () => {
+        expect(add('//[*][%]\n1*2%3')).toBe(6);
+    });
+
 });
