@@ -35,4 +35,9 @@ describe('String Calculator', () => {
         expect(() => add('-1,2,-3')).toThrow('negatives not allowed: -1,-3');
     });
 
+    // New test case for numbers bigger than 1000
+    test('ignores numbers bigger than 1000', () => {
+        expect(add('2,1001')).toBe(2);
+    });
+
 });
