@@ -15,4 +15,9 @@ describe('String Calculator', () => {
         expect(add('1,2')).toBe(3);
     });
 
+    // New test case for unknown amount of numbers
+    test('returns sum of unknown amount of numbers', () => {
+        expect(add('1,2,3,4')).toBe(10);
+    });
+
 });
