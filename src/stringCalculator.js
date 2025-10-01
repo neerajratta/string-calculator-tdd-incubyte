@@ -18,10 +18,13 @@ function add(numbers) {
         throw new Error(`negatives not allowed: ${negatives.join(',')}`);
     }
 
-    // Sum ignoring > 1000
-    return nums
-        .filter(n => n <= 1000)
-        .reduce((sum, n) => sum + n, 0);
+    // Sum numbers, ignoring those > 1000
+    return ignoreBigNumbers(nums).reduce((sum, n) => sum + n, 0);
+}
+
+// Helper function to filter out numbers greater than 1000
+function ignoreBigNumbers(nums) {
+    return nums.filter(n => n <= 1000);
 }
 
 module.exports = { add };
