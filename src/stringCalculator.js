@@ -9,13 +9,17 @@ function add(numbers) {
     numbers = numStr;
   }
 
-  // Split numbers and calculate sum
-  return numbers
-    .split(delimiter)
-    .map(Number)
-    .reduce((sum, n) => sum + n, 0);
-}
+  // Convert to numbers
+  const nums = numbers.split(delimiter).map(Number);
 
-module.exports = { add };
+  // Check for negatives
+  const negatives = nums.filter(n => n < 0);
+  if (negatives.length) {
+    throw new Error(`negatives not allowed: ${negatives.join(',')}`);
+  }
+
+  // Sum
+  return nums.reduce((sum, n) => sum + n, 0);
+}
 
 module.exports = { add };
