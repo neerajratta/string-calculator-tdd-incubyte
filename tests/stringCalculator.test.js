@@ -10,4 +10,9 @@ describe('String Calculator', () => {
         expect(add('5')).toBe(5);
     });
 
+    // New test case for two numbers separated by comma
+    test('returns sum of two numbers', () => {
+        expect(add('1,2')).toBe(3);
+    });
+
 });
