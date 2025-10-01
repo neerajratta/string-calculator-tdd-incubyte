@@ -40,4 +40,9 @@ describe('String Calculator', () => {
         expect(add('2,1001')).toBe(2);
     });
 
+    // New test case for delimiters of any length
+    test('handles delimiters of any length', () => {
+        expect(add('//[***]\n1***2***3')).toBe(6);
+    });
+
 });
