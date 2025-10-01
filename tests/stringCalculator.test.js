@@ -50,4 +50,9 @@ describe('String Calculator', () => {
         expect(add('//[*][%]\n1*2%3')).toBe(6);
     });
 
+    // New test case for multiple delimiters with length longer than one char
+    test('handles multiple delimiters with length longer than one char', () => {
+        expect(add('//[**][%%]\n1**2%%3')).toBe(6);
+    });
+
 });
